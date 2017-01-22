@@ -1,0 +1,78 @@
+#include "iostream"
+#include "Math.h"
+#include "cmath"
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int const n = 10;
+	int const m = 10;
+	int mas[n][m];
+	//==================================================
+	std::cout << "Задание №1" << std::endl;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (i==j){mas[i][j] = 1;}
+			else{mas[i][j] = 0;}
+			std::cout << mas[i][j] << ' ';
+		}
+		std::cout << std::endl;
+	}
+	//==================================================
+	int b = 0;
+	std::cout << "Задание №2" << std::endl;
+	for (int i = 0; i < n; i++)
+	{
+		b=i;
+		for (int j = 0; j < m; j++)
+		{
+			mas[i][j]=b;
+			b=b+1;
+			if (b==10) b=0;
+			std::cout << mas[i][j] << ' ';
+		}
+		std::cout << std::endl;
+	}
+	//==================================================
+	std::cout << "Задание №3" << std::endl;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (i == j) mas[i][j] = 1; else mas[i][j] = 0;
+			if (i + j == n - 1) mas[i][j] = 1;
+			cout << mas[i][j] << ' ';
+		}
+		cout << endl;
+	}
+	//==================================================
+	std::cout << "Задание №4" << std::endl;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (i == 0 || i==n-1 || j==0 || j==m-1) mas[i][j] = 1;
+			else mas[i][j] = 0;
+			cout << mas[i][j] << ' ';
+		}
+		cout << endl;
+	}
+	//==================================================
+	std::cout << "Задание №5" << std::endl;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (i == 0 || i==n-1 || j==0 || j==m-1) mas[i][j] = 1;
+			else mas[i][j] = 0;
+			if (i == 0 || i==n-2 || j==0 || j==m-2 ) mas[i][j] = 2;
+			else mas[i][j] = 3;
+			cout << mas[i][j] << ' ';
+		}
+		cout << endl;
+	}
+	system("pause");
+	return 0;
+}
