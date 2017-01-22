@@ -1,0 +1,86 @@
+#define M_PI_6 0.52359877559
+#include "iostream"
+#include "Math.h"
+using namespace std;
+int main()
+{
+	double x;
+	cout << "Hello user. Enter the value of X\n"; cin >> x;
+	double n = x-1, s = 1;
+	for (int i = 2; i <= n; i++)
+	{
+		if (i%2==0)
+		{ 
+		double a = -(pow(M_PI_6,i)/i);
+		s += a;
+		} 
+		else 
+		{ 
+			double a = +(pow(M_PI_6,i)/i);
+			s += a;
+		}
+	}
+std::cout << "Summa= " << s << std::endl;
+system("pause");
+}
+
+
+#define M_PI_6 0.52359877559
+#include "iostream"
+#include "Math.h"
+using namespace std;
+int main()
+{
+	double eps = 0, s = 1, a = 1, i = 1;
+	int c = 0;
+	cout << "Hello user. Enter the value of EPS\n"; cin >> eps;
+	while (a > eps)
+	{
+		c = i;
+		if (c % 2 == 0)
+		{
+			a = -(pow(M_PI_6, i) / i);
+			i = i + 1;
+			s += a;
+			a += -1;
+		}
+		else
+		{
+			a = +(pow(M_PI_6, i) / i);
+			i = i + 1;
+			s += a;
+		}
+	}
+	std::cout << "Summa= " << s << " iterac=" << i << " eps= " << eps << std::endl;
+	system("pause");
+}
+
+
+
+#include "iostream"
+#include "Math.h"
+#include "cmath"
+using namespace std;
+int main()
+{
+setlocale(LC_ALL, "Russian");
+bool p = 0;
+int const n = 8;
+int const m = 7;
+int const d = 21;
+int mas[n][m];
+std::cout << "Исходный массив" << std::endl;
+for (int i = 0; i < n; i++)
+{
+	for (int j = 0; j < m; j++)
+	{
+		p = rand()%2;
+		mas[i][j] = rand()%d;
+	if (p == 1)mas[i][j] = rand()%d*-1;
+		std::cout << mas[i][j] << ' ';
+	}
+std::cout << std::endl;
+}
+system("pause");
+return 0;
+}
