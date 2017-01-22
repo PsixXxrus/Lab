@@ -1,0 +1,76 @@
+#include <iostream>
+#include <time.h>
+
+using namespace std;
+
+void main(void)
+{
+	setlocale(LC_ALL, "Russian"); //Установим локаль в 1251 - кодовую станицу
+	int *Arr; //Наш массив
+	int aSize; //Кол-во элементов массива
+	cout << "Введите кол-во элементов массива : ";
+	cin >> aSize;
+	Arr = new int[aSize]; //Создадим дин. массив выделив под него память
+	srand(time(NULL)); //Инициализируем генератор случайной величины
+					   //заполним массив
+	for (int i = 0; i< aSize; i++)
+	{
+		Arr[i] = rand() % 100; // от 0..99
+	}
+	//отсортируем массив
+	for (int i = 0; i< aSize; i++)
+		for (int j = i + 1; j< aSize; j++)
+		{
+			if (Arr[i] < Arr[j])
+			{
+				int Temp = Arr[i];
+				Arr[i] = Arr[j];
+				Arr[j] = Temp;
+			}
+		}
+	//Введем новый элемент
+	int NewElem; //Добавляемый элемент
+	int Index; //Его индекс
+	cout << "Введите добавляемый элемент : ";
+	cin >> NewElem; //Введем новый элемент
+	int *Arr2 = new int[aSize + 1]; //Сформируем новый массив размер которого (размер старого +1)
+	int cnt = 0; //Индекс первоначального массива
+	bool isInsert = false; //Флаг внесения нового эл-та
+	for (int i = 0; i <aSize + 1; i++) //Обойдем весь новый массив
+	{
+		if (NewElem> Arr[cnt] && !isInsert) // Если новый элемент > Послед. и Фраг установки (false)
+		{
+			Arr2[i] = NewElem; //То вставим элкмкнт
+			isInsert = true;
+			Index = i; //И запомним его индекс
+		}
+		else //Иначе просто заполняем новый массив
+		{
+			Arr2[i] = Arr[cnt];
+			cnt++; //Увеличивая счетчик
+		}
+
+	}
+
+	cout << "Полученный массив: " << endl;
+	long stGeom = 1.0; //Среднее геометрич. всех элементов конечного массива (Arr2)
+	long stArefm = 0.0; // Среднее аримфметич.
+	int ArifmCount = 0; //Средне арифм.
+	for (int i = 0; i<aSize + 1; i++) //Обойдем весь новый массив
+	{
+		cout << Arr2[i] << " ";
+		stGeom *= Arr2[i]; //Найдем среднее геом. (вернее его часть - произведение) для каждого эл-а
+		if (i > Index) //А если текущий индекс > Index, то еще и суммируем сумму для арифм. среднего
+		{
+			stArefm += Arr2[i]; // В этом месте
+			ArifmCount++; // И Кол-во просумм. элементов
+		}
+	}
+	cout << endl;
+	if (ArifmCount == 0) ArifmCount++; //Что бы не вышло деления на нуль проверим ArifmCount
+									   //Вывод результатов:
+	cout << "Среднее геометрич. всех эл. массива = " << pow(stGeom, 1 / (double(aSize + 1))) << endl;
+	cout << "Среднее арифм. после включ. элемента = " << (double)stArefm / ArifmCount << endl;
+	system("pause");
+
+}
