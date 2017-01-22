@@ -1,0 +1,32 @@
+#include <iostream>
+#include <ctime>
+using std::cout;
+using std::endl;
+int main()
+{
+	setlocale(0, "Russian");
+	srand(time(0));
+	const int M = 8, N = 5;
+	int k[40], mas[N][M], d = 100, c = 0;
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < M; j++)
+		{
+			mas[i][j] = rand() % d + 1;
+			cout << mas[i][j] << " ";
+			if (mas[i][j] % 3 == 0)
+			{
+				k[c] = mas[i][j];
+				c++;
+			}
+		}
+		cout << endl;
+	}
+	cout << endl;
+	cout << "Полученный вектор k: ";
+	for (int i = 0; i < c; i++)
+		cout << k[i] << " ";
+	cout << endl;
+	system("pause");
+	return 0;
+}
