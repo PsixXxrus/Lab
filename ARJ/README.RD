@@ -1,169 +1,130 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace ArjSharp
+public class ArjFile
 {
-    public class ArjArchive
+    private const uint ARJ_HEADER_SIZE = 0x1E;
+    private const uint ARJ_FILE_HEADER_SIZE = 0x40;
+    private const uint ARJ_END_HEADER_SIZE = 0x1E;
+    private const uint ARJ_MAGIC_NUMBER = 0x1A;
+    
+    private List<string> files = new List<string>();
+    private string archiveName;
+
+    public ArjFile(string archiveName)
     {
-        private const ushort MAIN_HEADER_SIZE = 30;  // Размер основного заголовка ARJ
-        private const ushort FILE_HEADER_SIZE = 55;  // Размер заголовка файла ARJ
-        private const ushort END_HEADER_SIZE = 22;    // Размер заголовка конца архива ARJ
+        this.archiveName = archiveName;
+    }
 
-        private static readonly uint[] Crc32Table;
+    public void AddFile(string filePath)
+    {
+        files.Add(filePath);
+    }
 
-        static ArjArchive()
+    public void CreateArchive()
+    {
+        using (FileStream fs = new FileStream(archiveName, FileMode.Create))
         {
-            Crc32Table = new uint[256];
-            const uint polynomial = 0xedb88320;
-            for (uint i = 0; i < Crc32Table.Length; i++)
+            WriteMainHeader(fs);
+            WriteFileHeaders(fs);
+            WriteFiles(fs);
+            WriteEndOfArchive(fs);
+        }
+    }
+
+    private void WriteMainHeader(FileStream fs)
+    {
+        byte[] header = new byte[ARJ_HEADER_SIZE];
+        Array.Clear(header, 0, header.Length);
+        
+        // ARJ signature
+        Encoding.ASCII.GetBytes("ARJ", 0, 3, header, 0);
+        
+        // Write header
+        fs.Write(header, 0, header.Length);
+    }
+
+    private void WriteFileHeaders(FileStream fs)
+    {
+        foreach (string filePath in files)
+        {
+            FileInfo fileInfo = new FileInfo(filePath);
+            byte[] header = new byte[ARJ_FILE_HEADER_SIZE];
+            Array.Clear(header, 0, header.Length);
+
+            // Fill in the header
+            Encoding.ASCII.GetBytes(fileInfo.Name, 0, fileInfo.Name.Length, header, 0);
+            // Size of the file
+            BitConverter.GetBytes((uint)fileInfo.Length).CopyTo(header, 0x20);
+            // CRC32
+            BitConverter.GetBytes(Crc32.Compute(filePath)).CopyTo(header, 0x24);
+
+            // Write file header
+            fs.Write(header, 0, header.Length);
+        }
+    }
+
+    private void WriteFiles(FileStream fs)
+    {
+        foreach (string filePath in files)
+        {
+            using (FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
             {
-                uint crc = i;
-                for (uint j = 8; j > 0; j--)
-                {
-                    if ((crc & 1) == 1)
-                        crc = (crc >> 1) ^ polynomial;
-                    else
-                        crc >>= 1;
-                }
-                Crc32Table[i] = crc;
+                fileStream.CopyTo(fs);
             }
         }
+    }
 
-        private static uint CalculateCrc32(byte[] data)
+    private void WriteEndOfArchive(FileStream fs)
+    {
+        byte[] endHeader = new byte[ARJ_END_HEADER_SIZE];
+        Array.Clear(endHeader, 0, endHeader.Length);
+
+        // ARJ end signature
+        endHeader[0] = 0x60;
+        endHeader[1] = 0xEA;
+
+        // Write end of archive header
+        fs.Write(endHeader, 0, endHeader.Length);
+    }
+}
+
+public static class Crc32
+{
+    private static readonly uint[] CrcTable;
+
+    static Crc32()
+    {
+        const uint polynomial = 0xedb88320;
+        CrcTable = new uint[256];
+        for (uint i = 0; i < 256; i++)
+        {
+            uint crc = i;
+            for (uint j = 8; j > 0; j--)
+            {
+                if ((crc & 1) == 1)
+                    crc = (crc >> 1) ^ polynomial;
+                else
+                    crc >>= 1;
+            }
+            CrcTable[i] = crc;
+        }
+    }
+
+    public static uint Compute(string filePath)
+    {
+        using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
         {
             uint crc = 0xffffffff;
-            foreach (byte b in data)
+            int byteRead;
+            while ((byteRead = fs.ReadByte()) != -1)
             {
-                byte tableIndex = (byte)(((crc) & 0xff) ^ b);
-                crc = Crc32Table[tableIndex] ^ (crc >> 8);
+                byte b = (byte)byteRead;
+                crc = (crc >> 8) ^ CrcTable[(crc & 0xff) ^ b];
             }
             return ~crc;
-        }
-
-        private static ushort ToDosTime(DateTime dateTime)
-        {
-            return (ushort)(((dateTime.Hour & 0x1F) << 11) |
-                            ((dateTime.Minute & 0x3F) << 5) |
-                            ((dateTime.Second / 2) & 0x1F));
-        }
-
-        private static ushort ToDosDate(DateTime dateTime)
-        {
-            return (ushort)(((dateTime.Year - 1980) & 0x7F) << 9 |
-                            ((dateTime.Month & 0xF) << 5) |
-                            (dateTime.Day & 0x1F));
-        }
-
-        public static void Create(string outputFileName, string[] inputFiles)
-        {
-            using (FileStream arjFile = new FileStream(outputFileName, FileMode.Create))
-            using (BinaryWriter writer = new BinaryWriter(arjFile))
-            {
-                // Записываем основной заголовок
-                WriteMainHeader(writer);
-
-                foreach (var fileName in inputFiles)
-                {
-                    // Записываем заголовок файла
-                    WriteFileHeader(writer, fileName);
-                    // Записываем данные файла
-                    WriteFileData(writer, fileName);
-                }
-
-                // Записываем конец архива
-                WriteEndOfArchiveHeader(writer);
-            }
-        }
-
-        private static void WriteMainHeader(BinaryWriter writer)
-        {
-            using (MemoryStream headerStream = new MemoryStream())
-            using (BinaryWriter headerWriter = new BinaryWriter(headerStream))
-            {
-                headerWriter.Write(Encoding.ASCII.GetBytes("ARJ")); // Сигнатура ARJ
-                headerWriter.Write((ushort)MAIN_HEADER_SIZE); // Размер заголовка
-                headerWriter.Write((ushort)0x01); // Тип заголовка
-                headerWriter.Write((ushort)0); // Резерв
-                headerWriter.Write((byte)2); // Версия
-                headerWriter.Write((byte)0); // Минимальная версия
-                headerWriter.Write((byte)0); // Версия ОС
-                headerWriter.Write((byte)0); // Тип архиватора
-                headerWriter.Write((ushort)0); // Резерв
-                headerWriter.Write((uint)0); // CRC (заполнено позже)
-
-                byte[] headerData = headerStream.ToArray();
-                uint headerCrc = CalculateCrc32(headerData);
-                writer.Write(headerData, 0, headerData.Length - 4); // Запись заголовка без CRC
-                writer.Write(headerCrc); // Запись CRC заголовка
-            }
-        }
-
-        private static void WriteFileHeader(BinaryWriter writer, string fileName)
-        {
-            FileInfo fileInfo = new FileInfo(fileName);
-            byte[] fileNameBytes = Encoding.ASCII.GetBytes(fileInfo.Name);
-
-            using (MemoryStream headerStream = new MemoryStream())
-            using (BinaryWriter headerWriter = new BinaryWriter(headerStream))
-            {
-                headerWriter.Write(Encoding.ASCII.GetBytes("ARJ")); // Сигнатура ARJ
-                headerWriter.Write((ushort)(FILE_HEADER_SIZE + fileNameBytes.Length)); // Размер заголовка
-                headerWriter.Write((ushort)0x02); // Тип заголовка
-                headerWriter.Write((ushort)0); // Резерв
-                headerWriter.Write((byte)0); // Атрибуты файла
-                headerWriter.Write((byte)0); // Версия ОС
-                headerWriter.Write((uint)fileInfo.Length); // Размер файла
-
-                ushort dosDate = ToDosDate(fileInfo.LastWriteTime);
-                ushort dosTime = ToDosTime(fileInfo.LastWriteTime);
-                uint dosDateTime = ((uint)dosDate << 16) | dosTime;
-
-                headerWriter.Write(dosDateTime); // Время и дата в формате DOS
-                headerWriter.Write((ushort)0); // CRC заголовка (заполнено позже)
-                headerWriter.Write((byte)fileNameBytes.Length); // Длина имени файла
-                headerWriter.Write(fileNameBytes); // Имя файла
-                headerWriter.Write((byte)0); // Размер комментария
-
-                byte[] headerData = headerStream.ToArray();
-                uint headerCrc = CalculateCrc32(headerData);
-                writer.Write(headerData, 0, headerData.Length - 2); // Запись заголовка без CRC
-                writer.Write((ushort)headerCrc); // Запись CRC заголовка
-            }
-        }
-
-        private static void WriteFileData(BinaryWriter writer, string fileName)
-        {
-            byte[] fileData = File.ReadAllBytes(fileName);
-            writer.Write(fileData);
-            uint fileCrc = CalculateCrc32(fileData);
-            writer.Write(fileCrc); // Запись CRC файла
-        }
-
-        private static void WriteEndOfArchiveHeader(BinaryWriter writer)
-        {
-            using (MemoryStream headerStream = new MemoryStream())
-            using (BinaryWriter headerWriter = new BinaryWriter(headerStream))
-            {
-                headerWriter.Write(Encoding.ASCII.GetBytes("ARJ")); // Сигнатура ARJ
-                headerWriter.Write((ushort)END_HEADER_SIZE); // Размер заголовка
-                headerWriter.Write((ushort)0x60); // Тип заголовка (Конец архива)
-                headerWriter.Write((ushort)0); // Резерв
-                headerWriter.Write((byte)0); // Версия
-                headerWriter.Write((byte)0); // Минимальная версия
-                headerWriter.Write((byte)0); // ОС
-                headerWriter.Write((byte)0); // Тип архиватора
-                headerWriter.Write((byte)0); // Метод сжатия
-                headerWriter.Write((byte)0); // Количество файлов
-                headerWriter.Write((byte)0); // Размер комментария
-                headerWriter.Write((ushort)0); // CRC заголовка (заполнено позже)
-                headerWriter.Write((uint)0); // CRC архива
-
-                byte[] headerData = headerStream.ToArray();
-                uint headerCrc = CalculateCrc32(headerData);
-                writer.Write(headerData, 0, headerData.Length - 2); // Запись заголовка без CRC
-                writer.Write((ushort)headerCrc); // Запись CRC заголовка
-            }
         }
     }
 }
