@@ -8,11 +8,11 @@ namespace ArjSharp
     {
         private const ushort MAIN_HEADER_SIZE = 30;  // Основной заголовок ARJ
         private const ushort FILE_HEADER_SIZE = 55;  // Заголовок файла ARJ
+
         private static readonly uint[] Crc32Table;
 
         static ArjArchive()
         {
-            // Инициализация таблицы CRC32
             Crc32Table = new uint[256];
             const uint polynomial = 0xedb88320;
             for (uint i = 0; i < Crc32Table.Length; i++)
@@ -76,16 +76,16 @@ namespace ArjSharp
             using (MemoryStream headerStream = new MemoryStream())
             using (BinaryWriter headerWriter = new BinaryWriter(headerStream))
             {
-                headerWriter.Write((byte)0xEA); // Сигнатура ARJ
-                headerWriter.Write((byte)MAIN_HEADER_SIZE); // Размер заголовка
-                headerWriter.Write((short)0x01); // Тип заголовка
-                headerWriter.Write((short)0); // Резерв
+                headerWriter.Write(Encoding.ASCII.GetBytes("ARJ")); // Сигнатура ARJ
+                headerWriter.Write((ushort)MAIN_HEADER_SIZE); // Размер заголовка
+                headerWriter.Write((ushort)0x01); // Тип заголовка
+                headerWriter.Write((ushort)0); // Резерв
                 headerWriter.Write((byte)2); // Версия
                 headerWriter.Write((byte)0); // Минимальная версия
                 headerWriter.Write((byte)0); // Версия ОС
                 headerWriter.Write((byte)0); // Тип архиватора
-                headerWriter.Write((short)0); // Резерв
-                headerWriter.Write((int)0); // CRC (заполнено позже)
+                headerWriter.Write((ushort)0); // Резерв
+                headerWriter.Write((uint)0); // CRC (заполнено позже)
 
                 byte[] headerData = headerStream.ToArray();
                 uint headerCrc = CalculateCrc32(headerData);
@@ -102,20 +102,20 @@ namespace ArjSharp
             using (MemoryStream headerStream = new MemoryStream())
             using (BinaryWriter headerWriter = new BinaryWriter(headerStream))
             {
-                headerWriter.Write((byte)0xEA); // Сигнатура ARJ
-                headerWriter.Write((byte)(FILE_HEADER_SIZE + fileNameBytes.Length)); // Размер заголовка
-                headerWriter.Write((short)0x02); // Тип заголовка
-                headerWriter.Write((short)0); // Резерв
+                headerWriter.Write(Encoding.ASCII.GetBytes("ARJ")); // Сигнатура ARJ
+                headerWriter.Write((ushort)(FILE_HEADER_SIZE + fileNameBytes.Length)); // Размер заголовка
+                headerWriter.Write((ushort)0x02); // Тип заголовка
+                headerWriter.Write((ushort)0); // Резерв
                 headerWriter.Write((byte)0); // Атрибуты файла
                 headerWriter.Write((byte)0); // Версия ОС
-                headerWriter.Write((int)fileInfo.Length); // Размер файла
+                headerWriter.Write((uint)fileInfo.Length); // Размер файла
 
                 ushort dosDate = ToDosDate(fileInfo.LastWriteTime);
                 ushort dosTime = ToDosTime(fileInfo.LastWriteTime);
                 uint dosDateTime = ((uint)dosDate << 16) | dosTime;
 
                 headerWriter.Write(dosDateTime); // Время и дата в формате DOS
-                headerWriter.Write((short)0); // CRC заголовка (заполнено позже)
+                headerWriter.Write((ushort)0); // CRC заголовка (заполнено позже)
                 headerWriter.Write((byte)fileNameBytes.Length); // Длина имени файла
                 headerWriter.Write(fileNameBytes); // Имя файла
                 headerWriter.Write((byte)0); // Размер комментария
@@ -123,7 +123,7 @@ namespace ArjSharp
                 byte[] headerData = headerStream.ToArray();
                 uint headerCrc = CalculateCrc32(headerData);
                 writer.Write(headerData, 0, headerData.Length - 2); // Запись заголовка
-                writer.Write((short)headerCrc); // Запись CRC заголовка
+                writer.Write((ushort)headerCrc); // Запись CRC заголовка
             }
         }
 
@@ -140,10 +140,10 @@ namespace ArjSharp
             using (MemoryStream headerStream = new MemoryStream())
             using (BinaryWriter headerWriter = new BinaryWriter(headerStream))
             {
-                headerWriter.Write((byte)0xEA); // Сигнатура ARJ
-                headerWriter.Write((byte)0x1E); // Размер заголовка
-                headerWriter.Write((short)0x60); // Тип заголовка (Конец архива)
-                headerWriter.Write((short)0); // Резерв
+                headerWriter.Write(Encoding.ASCII.GetBytes("ARJ")); // Сигнатура ARJ
+                headerWriter.Write((ushort)0x1E); // Размер заголовка
+                headerWriter.Write((ushort)0x60); // Тип заголовка (Конец архива)
+                headerWriter.Write((ushort)0); // Резерв
                 headerWriter.Write((byte)0); // Версия
                 headerWriter.Write((byte)0); // Минимальная версия
                 headerWriter.Write((byte)0); // ОС
@@ -151,13 +151,13 @@ namespace ArjSharp
                 headerWriter.Write((byte)0); // Метод сжатия
                 headerWriter.Write((byte)0); // Количество файлов
                 headerWriter.Write((byte)0); // Размер комментария
-                headerWriter.Write((short)0); // CRC заголовка (заполнено позже)
-                headerWriter.Write((int)0); // CRC архива
+                headerWriter.Write((ushort)0); // CRC заголовка (заполнено позже)
+                headerWriter.Write((uint)0); // CRC архива
 
                 byte[] headerData = headerStream.ToArray();
                 uint headerCrc = CalculateCrc32(headerData);
                 writer.Write(headerData, 0, headerData.Length - 2); // Запись заголовка
-                writer.Write((short)headerCrc); // Запись CRC заголовка
+                writer.Write((ushort)headerCrc); // Запись CRC заголовка
             }
         }
     }
