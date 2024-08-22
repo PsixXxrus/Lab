@@ -78,19 +78,29 @@ namespace ArjSharp
         // Метод для записи основного заголовка
         private static void WriteMainHeader(BinaryWriter writer, int fileCount)
         {
-            writer.Write((byte)0xEA); // Идентификатор сигнатуры
-            writer.Write((byte)MAIN_HEADER_SIZE); // Размер заголовка
-            writer.Write((short)0x60); // Главный заголовок
-            writer.Write((short)0); // Дополнительные данные
-            writer.Write((byte)2); // Версия архива
-            writer.Write((byte)0); // Минимальная версия
-            writer.Write((byte)2); // Версия OS
-            writer.Write((byte)0); // Тип архиватора
-            writer.Write((byte)0); // Метод сжатия
-            writer.Write((byte)fileCount); // Количество файлов
-            writer.Write((byte)0); // Размер комментария
-            writer.Write((short)0); // Резерв
-            writer.Write((int)0); // CRC (заполнено позже)
+            using (MemoryStream headerStream = new MemoryStream())
+            using (BinaryWriter headerWriter = new BinaryWriter(headerStream))
+            {
+                headerWriter.Write((byte)0xEA); // Идентификатор сигнатуры
+                headerWriter.Write((byte)MAIN_HEADER_SIZE); // Размер заголовка
+                headerWriter.Write((short)0x01); // Тип основного заголовка
+                headerWriter.Write((short)0); // Дополнительные данные
+                headerWriter.Write((byte)2); // Версия архива
+                headerWriter.Write((byte)0); // Минимальная версия
+                headerWriter.Write((byte)2); // Версия OS
+                headerWriter.Write((byte)0); // Тип архиватора
+                headerWriter.Write((byte)0); // Метод сжатия
+                headerWriter.Write((short)0); // Резерв
+                headerWriter.Write((int)0); // CRC (заполнено позже)
+                headerWriter.Write((short)0); // Версия и подпись
+                headerWriter.Write((short)0); // ID архиватора
+
+                // Подсчет CRC для основного заголовка
+                byte[] headerData = headerStream.ToArray();
+                uint headerCrc = CalculateCrc32(headerData);
+                writer.Write(headerData, 0, headerData.Length); // Запись заголовка
+                writer.Write((short)headerCrc); // Запись CRC заголовка
+            }
         }
 
         // Метод для записи заголовка файла
@@ -141,28 +151,29 @@ namespace ArjSharp
         // Метод для записи заголовка окончания архива
         private static void WriteEndOfArchiveHeader(BinaryWriter writer)
         {
-            writer.Write((byte)0xEA); // Идентификатор сигнатуры
-            writer.Write((byte)0x1E); // Размер заголовка
-            writer.Write((short)0x60); // Конец архива
-            writer.Write((short)0); // Дополнительные данные
-            writer.Write((byte)0); // Версия
-            writer.Write((byte)0); // Минимальная версия
-            writer.Write((byte)0); // OS
-            writer.Write((byte)0); // Тип архиватора
-            writer.Write((byte)0); // Метод сжатия
-            writer.Write((byte)0); // Количество файлов
-            writer.Write((byte)0); // Размер комментария
-            writer.Write((short)0); // CRC
-            writer.Write((int)0); // CRC заголовка
-        }
-    }
-}
+            using (MemoryStream headerStream = new MemoryStream())
+            using (BinaryWriter headerWriter = new BinaryWriter(headerStream))
+            {
+                headerWriter.Write((byte)0xEA); // Идентификатор сигнатуры
+                headerWriter.Write((byte)0x1E); // Размер заголовка
+                headerWriter.Write((short)0x60); // Конец архива
+                headerWriter.Write((short)0); // Дополнительные данные
+                headerWriter.Write((byte)0); // Версия
+                headerWriter.Write((byte)0); // Минимальная версия
+                headerWriter.Write((byte)0); // OS
+                headerWriter.Write((byte)0); // Тип архиватора
+                headerWriter.Write((byte)0); // Метод сжатия
+                headerWriter.Write((byte)0); // Количество файлов
+                headerWriter.Write((byte)0); // Размер комментария
+                headerWriter.Write((short)0); // CRC заголовка (заполнено позже)
+                headerWriter.Write((int)0); // CRC архива
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        string[] filesToArchive = { "file1.txt", "file2.txt", "file3.txt" };
-        ARJ.Create("output.arj", filesToArchive);
+                // Подсчет CRC для заголовка конца архива
+                byte[] headerData = headerStream.ToArray();
+                uint headerCrc = CalculateCrc32(headerData);
+                writer.Write(headerData, 0, headerData.Length - 2); // Запись заголовка (до CRC)
+                writer.Write((short)headerCrc); // Запись CRC заголовка
+            }
+        }
     }
 }
