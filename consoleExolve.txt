@@ -1,0 +1,974 @@
+
+INFO%cJsSIP:WebSocketInterface %cnew() [url:"%s"]%c +0ms color: #66CC33 color: inherit wss://webrtc.exolve.ru:8443 color: #66CC33
+INFO%cJsSIP:UA %cnew() [configuration:%o]%c +0ms color: #FF9933 color: inherit [object Object] color: #FF9933
+INFO%cJsSIP:Transport %cnew()%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:UA %cconfiguration parameters after validation:%c +2ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- authorization_user: "883140776916774"%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- password: NOT SHOWN%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- realm: "80.75.132.120"%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- ha1: NOT SHOWN%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- authorization_jwt: NOT SHOWN%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- display_name: "883140776916774"%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- uri: sip:883140776916774@80.75.132.120%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- contact_uri: {"_parameters":{},"_headers":{},"_scheme":"sip","_user":"883140776916774-ddddfo06xokl8rr8","_host":"ddddfo06xokl8rr8.invalid"}%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- instance_id: "d7cf399b-9d1f-41bc-9e23-635b6623bb20"%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- use_preloaded_route: false%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- session_timers: true%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- session_timers_refresh_method: "UPDATE"%c +1ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- session_timers_force_refresher: false%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- no_answer_timeout: 60000%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- register: true%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- register_expires: 100%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- registrar_server: sip:80.75.132.120%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- connection_recovery_max_interval: 30%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- connection_recovery_min_interval: 2%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- extra_headers: null%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %c- via_host: "ddddfo06xokl8rr8.invalid"%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %cstart()%c +2s color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:Transport %cconnect()%c +2s color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %cconnect()%c +2s color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:WebSocketInterface %cconnecting to WebSocket wss://webrtc.exolve.ru:8443%c +0ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:WebSocketInterface %cWebSocket wss://webrtc.exolve.ru:8443 connected%c +716ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %csend()%c +720ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+REGISTER sip:80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK2095237
+Max-Forwards: 69
+To: <sip:883140776916774@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=tvqf3jm37g
+Call-ID: b3oej83vtp9p2n84eh1bi1
+CSeq: 1 REGISTER
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid>;+sip.ice;reg-id=1;+sip.instance="<urn:uuid:d7cf399b-9d1f-41bc-9e23-635b6623bb20>";expires=100
+Expires: 100
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: path,gruu,outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 0
+
+
+%c +3ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +9ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +167ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 401 Unauthorized
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46673;branch=z9hG4bK2095237
+To: <sip:883140776916774@80.75.132.120>;tag=SDms05399-5b66.b82316455bf564ac13cbec4f08a8dd67
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=tvqf3jm37g
+Call-ID: b3oej83vtp9p2n84eh1bi1
+CSeq: 1 REGISTER
+WWW-Authenticate: Digest realm="sip.exolve.ru", nonce="6703adb500007d041cd83855f12d9fc9495ea36f7d74740f", qop="auth"
+Server: OpenSIPS (3.1.17 (x86_64/linux))
+Content-Length: 0
+
+
+%c +170ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:DigestAuthentication %cauthenticate() | using qop=auth [a2:"%s"]%c +0ms color: #FF9933 color: inherit REGISTER:sip:80.75.132.120 color: #FF9933
+INFO%cJsSIP:DigestAuthentication %cauthenticate() | response generated%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:Transport %csend()%c +23ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+REGISTER sip:80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK142539
+Max-Forwards: 69
+To: <sip:883140776916774@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=tvqf3jm37g
+Call-ID: b3oej83vtp9p2n84eh1bi1
+CSeq: 2 REGISTER
+Authorization: Digest algorithm=MD5, username="883140776916774", realm="sip.exolve.ru", nonce="6703adb500007d041cd83855f12d9fc9495ea36f7d74740f", uri="sip:80.75.132.120", response="0784db78ef56edc362969b63980efca4", qop=auth, cnonce="fnb2c37hspu2", nc=00000001
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid>;+sip.ice;reg-id=1;+sip.instance="<urn:uuid:d7cf399b-9d1f-41bc-9e23-635b6623bb20>";expires=100
+Expires: 100
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: path,gruu,outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 0
+
+
+%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +24ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +173ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 200 OK
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46673;branch=z9hG4bK142539
+To: <sip:883140776916774@80.75.132.120>;tag=SDms05399-5b66.1a08c7a9c2c6b5efda4b1c46748f19fe
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=tvqf3jm37g
+Call-ID: b3oej83vtp9p2n84eh1bi1
+CSeq: 2 REGISTER
+Server: OpenSIPS (3.1.17 (x86_64/linux))
+Content-Length: 0
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid>;expires=100;ct-username="sip:213.87.240.33:46673;transport=wss"
+
+
+%c +173ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:UA %ccall()%c +1s color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:RTCSession %cnew%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cconnect()%c +2ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "peerconnection"%c +4ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cnewRTCSession()%c +1ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %csession connecting%c +45ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "connecting"%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %ccreateLocalDescription()%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "sdp"%c +7ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "sending" [request:%o]%c +0ms color: #99CC00 color: inherit INVITE sip:883140776918936@80.75.132.120 SIP/2.0
+Via: 
+Max-Forwards: 69
+To: <sip:883140776918936@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=hrkm4a27lr
+Call-ID: ci9h8re757tt9lu6oouo
+CSeq: 6144 INVITE
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid;ob>
+Content-Type: application/sdp
+Session-Expires: 500
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: timer,ice,replaces,outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 1397
+
+v=0
+o=- 4780434615467995414 2 IN IP4 127.0.0.1
+s=-
+t=0 0
+a=group:BUNDLE 0
+a=extmap-allow-mixed
+a=msid-semantic: WMS 0f9d810f-0f84-4e22-bf20-d96cd4487402
+m=audio 56887 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126
+c=IN IP4 172.20.10.4
+a=rtcp:9 IN IP4 0.0.0.0
+a=candidate:3373978249 1 udp 2122194687 172.20.10.4 56887 typ host generation 0 network-id 1 network-cost 10
+a=ice-ufrag:vDqx
+a=ice-pwd:yEswtuhW2Hi83AdcsmQzHkF9
+a=ice-options:trickle
+a=fingerprint:sha-256 56:25:D8:1C:A6:C7:63:B0:0E:34:20:DF:43:53:F8:40:8B:BB:F1:E7:E9:37:3D:BE:7E:DA:6E:83:EF:92:57:BD
+a=setup:actpass
+a=mid:0
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=sendrecv
+a=msid:0f9d810f-0f84-4e22-bf20-d96cd4487402 1bba752c-e77b-43b3-985d-6f2334acddb5
+a=rtcp-mux
+a=rtpmap:111 opus/48000/2
+a=rtcp-fb:111 transport-cc
+a=fmtp:111 minptime=10;useinbandfec=1
+a=rtpmap:63 red/48000/2
+a=fmtp:63 111/111
+a=rtpmap:9 G722/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:13 CN/8000
+a=rtpmap:110 telephone-event/48000
+a=rtpmap:126 telephone-event/8000
+a=ssrc:887490687 cname:vger2M6OwP/G/u1T
+a=ssrc:887490687 msid:0f9d810f-0f84-4e22-bf20-d96cd4487402 1bba752c-e77b-43b3-985d-6f2334acddb5
+ color: #99CC00
+INFO%cJsSIP:Transport %csend()%c +68ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+INVITE sip:883140776918936@80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK4954
+Max-Forwards: 69
+To: <sip:883140776918936@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=hrkm4a27lr
+Call-ID: ci9h8re757tt9lu6oouo
+CSeq: 6144 INVITE
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid;ob>
+Content-Type: application/sdp
+Session-Expires: 500
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: timer,ice,replaces,outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 1397
+
+v=0
+o=- 4780434615467995414 2 IN IP4 127.0.0.1
+s=-
+t=0 0
+a=group:BUNDLE 0
+a=extmap-allow-mixed
+a=msid-semantic: WMS 0f9d810f-0f84-4e22-bf20-d96cd4487402
+m=audio 56887 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126
+c=IN IP4 172.20.10.4
+a=rtcp:9 IN IP4 0.0.0.0
+a=candidate:3373978249 1 udp 2122194687 172.20.10.4 56887 typ host generation 0 network-id 1 network-cost 10
+a=ice-ufrag:vDqx
+a=ice-pwd:yEswtuhW2Hi83AdcsmQzHkF9
+a=ice-options:trickle
+a=fingerprint:sha-256 56:25:D8:1C:A6:C7:63:B0:0E:34:20:DF:43:53:F8:40:8B:BB:F1:E7:E9:37:3D:BE:7E:DA:6E:83:EF:92:57:BD
+a=setup:actpass
+a=mid:0
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=sendrecv
+a=msid:0f9d810f-0f84-4e22-bf20-d96cd4487402 1bba752c-e77b-43b3-985d-6f2334acddb5
+a=rtcp-mux
+a=rtpmap:111 opus/48000/2
+a=rtcp-fb:111 transport-cc
+a=fmtp:111 minptime=10;useinbandfec=1
+a=rtpmap:63 red/48000/2
+a=fmtp:63 111/111
+a=rtpmap:9 G722/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:13 CN/8000
+a=rtpmap:110 telephone-event/48000
+a=rtpmap:126 telephone-event/8000
+a=ssrc:887490687 cname:vger2M6OwP/G/u1T
+a=ssrc:887490687 msid:0f9d810f-0f84-4e22-bf20-d96cd4487402 1bba752c-e77b-43b3-985d-6f2334acddb5
+
+%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +68ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:RTCSession %cterminate()%c +239ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %ccanceling session%c +1ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %csession failed%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "_failed"%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cclose()%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cclose() | closing local MediaStream%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "failed"%c +1ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:UA %cstop()%c +301ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:Transport %csend()%c +241ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+REGISTER sip:80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK7352308
+Max-Forwards: 69
+To: <sip:883140776916774@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=h5ddsd872q
+Call-ID: b3oej83vtp9p2n84eh1bi1
+CSeq: 3 REGISTER
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid>;+sip.ice;reg-id=1;+sip.instance="<urn:uuid:d7cf399b-9d1f-41bc-9e23-635b6623bb20>";expires=0
+Expires: 0
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: path,gruu,outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 0
+
+
+%c +1ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +242ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +8ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 100 Giving it a try
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46673;branch=z9hG4bK4954
+To: <sip:883140776918936@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=hrkm4a27lr
+Call-ID: ci9h8re757tt9lu6oouo
+CSeq: 6144 INVITE
+Server: SIP Proxy
+Content-Length: 0
+
+
+%c +9ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:RTCSession %creceiveInviteResponse()%c +12ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:Transport %csend()%c +1ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+CANCEL sip:883140776918936@80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK4954
+Max-Forwards: 69
+To: <sip:883140776918936@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=hrkm4a27lr
+Call-ID: ci9h8re757tt9lu6oouo
+CSeq: 6144 CANCEL
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 0
+
+
+%c +1ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +3ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +0ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 401 Unauthorized
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46673;branch=z9hG4bK4954
+To: <sip:883140776918936@80.75.132.120>;tag=SDq16n499-5b66.2b0ac14e70bbaf63dfd901eb44938f50
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=hrkm4a27lr
+Call-ID: ci9h8re757tt9lu6oouo
+CSeq: 6144 INVITE
+WWW-Authenticate: Digest realm="sip.exolve.ru", nonce="6703adb500007d05bf8a69e829e321de923e3d9a5707d2d0", qop="auth"
+Server: OpenSIPS (3.1.17 (x86_64/linux))
+Content-Length: 0
+
+
+%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csend()%c +1ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+ACK sip:883140776918936@80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK4954
+Max-Forwards: 69
+To: <sip:883140776918936@80.75.132.120>;tag=SDq16n499-5b66.2b0ac14e70bbaf63dfd901eb44938f50
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=hrkm4a27lr
+Call-ID: ci9h8re757tt9lu6oouo
+CSeq: 6144 ACK
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 0
+
+
+%c +1ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +2ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:DigestAuthentication %cauthenticate() | using qop=auth [a2:"%s"]%c +497ms color: #FF9933 color: inherit INVITE:sip:883140776918936@80.75.132.120 color: #FF9933
+INFO%cJsSIP:DigestAuthentication %cauthenticate() | response generated%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:Transport %csend()%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+INVITE sip:883140776918936@80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK1870424
+Max-Forwards: 69
+To: <sip:883140776918936@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=hrkm4a27lr
+Call-ID: ci9h8re757tt9lu6oouo
+CSeq: 6145 INVITE
+Authorization: Digest algorithm=MD5, username="883140776916774", realm="sip.exolve.ru", nonce="6703adb500007d05bf8a69e829e321de923e3d9a5707d2d0", uri="sip:883140776918936@80.75.132.120", response="1ca6fa43d96d5e110d55802decabc79e", qop=auth, cnonce="t5oe31os4o1u", nc=00000001
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid;ob>
+Content-Type: application/sdp
+Session-Expires: 500
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: timer,ice,replaces,outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 1397
+
+v=0
+o=- 4780434615467995414 2 IN IP4 127.0.0.1
+s=-
+t=0 0
+a=group:BUNDLE 0
+a=extmap-allow-mixed
+a=msid-semantic: WMS 0f9d810f-0f84-4e22-bf20-d96cd4487402
+m=audio 56887 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126
+c=IN IP4 172.20.10.4
+a=rtcp:9 IN IP4 0.0.0.0
+a=candidate:3373978249 1 udp 2122194687 172.20.10.4 56887 typ host generation 0 network-id 1 network-cost 10
+a=ice-ufrag:vDqx
+a=ice-pwd:yEswtuhW2Hi83AdcsmQzHkF9
+a=ice-options:trickle
+a=fingerprint:sha-256 56:25:D8:1C:A6:C7:63:B0:0E:34:20:DF:43:53:F8:40:8B:BB:F1:E7:E9:37:3D:BE:7E:DA:6E:83:EF:92:57:BD
+a=setup:actpass
+a=mid:0
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=sendrecv
+a=msid:0f9d810f-0f84-4e22-bf20-d96cd4487402 1bba752c-e77b-43b3-985d-6f2334acddb5
+a=rtcp-mux
+a=rtpmap:111 opus/48000/2
+a=rtcp-fb:111 transport-cc
+a=fmtp:111 minptime=10;useinbandfec=1
+a=rtpmap:63 red/48000/2
+a=fmtp:63 111/111
+a=rtpmap:9 G722/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:13 CN/8000
+a=rtpmap:110 telephone-event/48000
+a=rtpmap:126 telephone-event/8000
+a=ssrc:887490687 cname:vger2M6OwP/G/u1T
+a=ssrc:887490687 msid:0f9d810f-0f84-4e22-bf20-d96cd4487402 1bba752c-e77b-43b3-985d-6f2334acddb5
+
+%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +1ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:InviteClientTransaction %cTimer D expired for transaction z9hG4bK4954%c +0ms color: #FF3333 color: inherit color: #FF3333
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +169ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 200 canceling
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46673;branch=z9hG4bK4954
+To: <sip:883140776918936@80.75.132.120>;tag=3c0b-7a312d8eebcbc657b724c66ad8b966cc
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=hrkm4a27lr
+Call-ID: ci9h8re757tt9lu6oouo
+CSeq: 6144 CANCEL
+Server: SIP Proxy
+Content-Length: 0
+
+
+%c +171ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +6ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 200 OK
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46673;branch=z9hG4bK7352308
+To: <sip:883140776916774@80.75.132.120>;tag=SDms05399-decc.11e5d30b000f4f31664ee508c762589c
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=h5ddsd872q
+Call-ID: b3oej83vtp9p2n84eh1bi1
+CSeq: 3 REGISTER
+Server: MTT PUSH GW
+Content-Length: 0
+
+
+%c +5ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +4ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 100 Giving it a try
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46673;branch=z9hG4bK1870424
+To: <sip:883140776918936@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=hrkm4a27lr
+Call-ID: ci9h8re757tt9lu6oouo
+CSeq: 6145 INVITE
+Server: SIP Proxy
+Content-Length: 0
+
+
+%c +4ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:RTCSession %creceiveInviteResponse()%c +185ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:Transport %csend()%c +2ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+CANCEL sip:883140776918936@80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK1870424
+Max-Forwards: 69
+To: <sip:883140776918936@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=hrkm4a27lr
+Call-ID: ci9h8re757tt9lu6oouo
+CSeq: 6145 CANCEL
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 0
+
+
+%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +2ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:UA %cstart()%c +514ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:UA %crestarting UA%c +0ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:Transport %cclose()%c +318ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %cdisconnect()%c +318ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:InviteClientTransaction %ctransport error occurred, deleting transaction z9hG4bK1870424%c +500ms color: #FF3333 color: inherit color: #FF3333
+WARNING%cJsSIP:WARN:RTCSession %conTransportError()%c +0ms color: #66CC00 color: inherit color: #66CC00
+INFO%cJsSIP:Transport %cconnect()%c +1ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %cconnect()%c +1ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:WebSocketInterface %cconnecting to WebSocket wss://webrtc.exolve.ru:8443%c +1ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:WebSocketInterface %cWebSocket wss://webrtc.exolve.ru:8443 connected%c +560ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %csend()%c +563ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+REGISTER sip:80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK88781
+Max-Forwards: 69
+To: <sip:883140776916774@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=ns6n170dv0
+Call-ID: b3oej83vtp9p2n84eh1bi1
+CSeq: 4 REGISTER
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid>;+sip.ice;reg-id=1;+sip.instance="<urn:uuid:d7cf399b-9d1f-41bc-9e23-635b6623bb20>";expires=100
+Expires: 100
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: path,gruu,outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 0
+
+
+%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +2ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +148ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 401 Unauthorized
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46675;branch=z9hG4bK88781
+To: <sip:883140776916774@80.75.132.120>;tag=SDms05399-5b66.6942613ed72203af245fb32283e9a820
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=ns6n170dv0
+Call-ID: b3oej83vtp9p2n84eh1bi1
+CSeq: 4 REGISTER
+WWW-Authenticate: Digest realm="sip.exolve.ru", nonce="6703adb600007d06431faf6286de368a58b3db6d0c7a410e", qop="auth"
+Server: OpenSIPS (3.1.17 (x86_64/linux))
+Content-Length: 0
+
+
+%c +148ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:DigestAuthentication %cauthenticate() | using qop=auth [a2:"%s"]%c +1s color: #FF9933 color: inherit REGISTER:sip:80.75.132.120 color: #FF9933
+INFO%cJsSIP:DigestAuthentication %cauthenticate() | response generated%c +3ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:Transport %csend()%c +11ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+REGISTER sip:80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK7248535
+Max-Forwards: 69
+To: <sip:883140776916774@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=ns6n170dv0
+Call-ID: b3oej83vtp9p2n84eh1bi1
+CSeq: 5 REGISTER
+Authorization: Digest algorithm=MD5, username="883140776916774", realm="sip.exolve.ru", nonce="6703adb600007d06431faf6286de368a58b3db6d0c7a410e", uri="sip:80.75.132.120", response="9e113c3effe64210d1e9453d7290c001", qop=auth, cnonce="5ls1o5gng1nt", nc=00000001
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid>;+sip.ice;reg-id=1;+sip.instance="<urn:uuid:d7cf399b-9d1f-41bc-9e23-635b6623bb20>";expires=100
+Expires: 100
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: path,gruu,outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 0
+
+
+%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +12ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +125ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 200 OK
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46675;branch=z9hG4bK7248535
+To: <sip:883140776916774@80.75.132.120>;tag=SDms05399-5b66.a7722a693741d77c6ae3d8faaa749dbc
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=ns6n170dv0
+Call-ID: b3oej83vtp9p2n84eh1bi1
+CSeq: 5 REGISTER
+Server: OpenSIPS (3.1.17 (x86_64/linux))
+Content-Length: 0
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid>;expires=100;ct-username="sip:213.87.240.33:46675;transport=wss"
+
+
+%c +127ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:UA %ccall()%c +856ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:RTCSession %cnew%c +1s color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cconnect()%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "peerconnection"%c +6ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cnewRTCSession()%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %csession connecting%c +27ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "connecting"%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %ccreateLocalDescription()%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "sdp"%c +6ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "sending" [request:%o]%c +0ms color: #99CC00 color: inherit INVITE sip:883140776918936@80.75.132.120 SIP/2.0
+Via: 
+Max-Forwards: 69
+To: <sip:883140776918936@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=3vqlvun4eu
+Call-ID: ci9h852dela6g9ivj7v9
+CSeq: 8070 INVITE
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid;ob>
+Content-Type: application/sdp
+Session-Expires: 500
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: timer,ice,replaces,outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 1399
+
+v=0
+o=- 7247033153823555354 2 IN IP4 127.0.0.1
+s=-
+t=0 0
+a=group:BUNDLE 0
+a=extmap-allow-mixed
+a=msid-semantic: WMS 429d7527-1c07-45d0-aadd-7d507ed6f765
+m=audio 52572 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126
+c=IN IP4 172.20.10.4
+a=rtcp:9 IN IP4 0.0.0.0
+a=candidate:2079081519 1 udp 2122194687 172.20.10.4 52572 typ host generation 0 network-id 1 network-cost 10
+a=ice-ufrag:wHDz
+a=ice-pwd:I09oRf/ICmKuHnixEiPzDH13
+a=ice-options:trickle
+a=fingerprint:sha-256 06:99:A0:19:44:9C:C2:D6:92:2D:49:79:68:98:BD:6C:98:6B:6A:BD:06:A4:F4:27:36:8C:1B:2E:30:D7:94:A7
+a=setup:actpass
+a=mid:0
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=sendrecv
+a=msid:429d7527-1c07-45d0-aadd-7d507ed6f765 b6c956bc-8647-44d7-a5ee-3d295d65c1bd
+a=rtcp-mux
+a=rtpmap:111 opus/48000/2
+a=rtcp-fb:111 transport-cc
+a=fmtp:111 minptime=10;useinbandfec=1
+a=rtpmap:63 red/48000/2
+a=fmtp:63 111/111
+a=rtpmap:9 G722/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:13 CN/8000
+a=rtpmap:110 telephone-event/48000
+a=rtpmap:126 telephone-event/8000
+a=ssrc:1884439126 cname:dcDIKg7lbTLsAKm1
+a=ssrc:1884439126 msid:429d7527-1c07-45d0-aadd-7d507ed6f765 b6c956bc-8647-44d7-a5ee-3d295d65c1bd
+ color: #99CC00
+INFO%cJsSIP:Transport %csend()%c +46ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+INVITE sip:883140776918936@80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK6448821
+Max-Forwards: 69
+To: <sip:883140776918936@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=3vqlvun4eu
+Call-ID: ci9h852dela6g9ivj7v9
+CSeq: 8070 INVITE
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid;ob>
+Content-Type: application/sdp
+Session-Expires: 500
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: timer,ice,replaces,outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 1399
+
+v=0
+o=- 7247033153823555354 2 IN IP4 127.0.0.1
+s=-
+t=0 0
+a=group:BUNDLE 0
+a=extmap-allow-mixed
+a=msid-semantic: WMS 429d7527-1c07-45d0-aadd-7d507ed6f765
+m=audio 52572 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126
+c=IN IP4 172.20.10.4
+a=rtcp:9 IN IP4 0.0.0.0
+a=candidate:2079081519 1 udp 2122194687 172.20.10.4 52572 typ host generation 0 network-id 1 network-cost 10
+a=ice-ufrag:wHDz
+a=ice-pwd:I09oRf/ICmKuHnixEiPzDH13
+a=ice-options:trickle
+a=fingerprint:sha-256 06:99:A0:19:44:9C:C2:D6:92:2D:49:79:68:98:BD:6C:98:6B:6A:BD:06:A4:F4:27:36:8C:1B:2E:30:D7:94:A7
+a=setup:actpass
+a=mid:0
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=sendrecv
+a=msid:429d7527-1c07-45d0-aadd-7d507ed6f765 b6c956bc-8647-44d7-a5ee-3d295d65c1bd
+a=rtcp-mux
+a=rtpmap:111 opus/48000/2
+a=rtcp-fb:111 transport-cc
+a=fmtp:111 minptime=10;useinbandfec=1
+a=rtpmap:63 red/48000/2
+a=fmtp:63 111/111
+a=rtpmap:9 G722/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:13 CN/8000
+a=rtpmap:110 telephone-event/48000
+a=rtpmap:126 telephone-event/8000
+a=ssrc:1884439126 cname:dcDIKg7lbTLsAKm1
+a=ssrc:1884439126 msid:429d7527-1c07-45d0-aadd-7d507ed6f765 b6c956bc-8647-44d7-a5ee-3d295d65c1bd
+
+%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +47ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +117ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 100 Giving it a try
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46675;branch=z9hG4bK6448821
+To: <sip:883140776918936@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=3vqlvun4eu
+Call-ID: ci9h852dela6g9ivj7v9
+CSeq: 8070 INVITE
+Server: SIP Proxy
+Content-Length: 0
+
+
+%c +117ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:RTCSession %creceiveInviteResponse()%c +120ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +27ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 401 Unauthorized
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46675;branch=z9hG4bK6448821
+To: <sip:883140776918936@80.75.132.120>;tag=SDb5hob99-5b66.a77b5f08ab4dada20d7019c7ba8338e4
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=3vqlvun4eu
+Call-ID: ci9h852dela6g9ivj7v9
+CSeq: 8070 INVITE
+WWW-Authenticate: Digest realm="sip.exolve.ru", nonce="6703adb700007d0742db0ca57c453c49e4555450b9d7f830", qop="auth"
+Server: OpenSIPS (3.1.17 (x86_64/linux))
+Content-Length: 0
+
+
+%c +28ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csend()%c +2ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+ACK sip:883140776918936@80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK6448821
+Max-Forwards: 69
+To: <sip:883140776918936@80.75.132.120>;tag=SDb5hob99-5b66.a77b5f08ab4dada20d7019c7ba8338e4
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=3vqlvun4eu
+Call-ID: ci9h852dela6g9ivj7v9
+CSeq: 8070 ACK
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 0
+
+
+%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +3ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:DigestAuthentication %cauthenticate() | using qop=auth [a2:"%s"]%c +321ms color: #FF9933 color: inherit INVITE:sip:883140776918936@80.75.132.120 color: #FF9933
+INFO%cJsSIP:DigestAuthentication %cauthenticate() | response generated%c +1ms color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:Transport %csend()%c +1ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+INVITE sip:883140776918936@80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK8054041
+Max-Forwards: 69
+To: <sip:883140776918936@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=3vqlvun4eu
+Call-ID: ci9h852dela6g9ivj7v9
+CSeq: 8071 INVITE
+Authorization: Digest algorithm=MD5, username="883140776916774", realm="sip.exolve.ru", nonce="6703adb700007d0742db0ca57c453c49e4555450b9d7f830", uri="sip:883140776918936@80.75.132.120", response="e006b7ba4c1b58f085fc0e22ba486efc", qop=auth, cnonce="lv1hrsbmk2ll", nc=00000001
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid;ob>
+Content-Type: application/sdp
+Session-Expires: 500
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: timer,ice,replaces,outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 1399
+
+v=0
+o=- 7247033153823555354 2 IN IP4 127.0.0.1
+s=-
+t=0 0
+a=group:BUNDLE 0
+a=extmap-allow-mixed
+a=msid-semantic: WMS 429d7527-1c07-45d0-aadd-7d507ed6f765
+m=audio 52572 UDP/TLS/RTP/SAVPF 111 63 9 0 8 13 110 126
+c=IN IP4 172.20.10.4
+a=rtcp:9 IN IP4 0.0.0.0
+a=candidate:2079081519 1 udp 2122194687 172.20.10.4 52572 typ host generation 0 network-id 1 network-cost 10
+a=ice-ufrag:wHDz
+a=ice-pwd:I09oRf/ICmKuHnixEiPzDH13
+a=ice-options:trickle
+a=fingerprint:sha-256 06:99:A0:19:44:9C:C2:D6:92:2D:49:79:68:98:BD:6C:98:6B:6A:BD:06:A4:F4:27:36:8C:1B:2E:30:D7:94:A7
+a=setup:actpass
+a=mid:0
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid
+a=sendrecv
+a=msid:429d7527-1c07-45d0-aadd-7d507ed6f765 b6c956bc-8647-44d7-a5ee-3d295d65c1bd
+a=rtcp-mux
+a=rtpmap:111 opus/48000/2
+a=rtcp-fb:111 transport-cc
+a=fmtp:111 minptime=10;useinbandfec=1
+a=rtpmap:63 red/48000/2
+a=fmtp:63 111/111
+a=rtpmap:9 G722/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:13 CN/8000
+a=rtpmap:110 telephone-event/48000
+a=rtpmap:126 telephone-event/8000
+a=ssrc:1884439126 cname:dcDIKg7lbTLsAKm1
+a=ssrc:1884439126 msid:429d7527-1c07-45d0-aadd-7d507ed6f765 b6c956bc-8647-44d7-a5ee-3d295d65c1bd
+
+%c +1ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +2ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:InviteClientTransaction %cTimer D expired for transaction z9hG4bK6448821%c +1s color: #FF3333 color: inherit color: #FF3333
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +107ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 100 Giving it a try
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46675;branch=z9hG4bK8054041
+To: <sip:883140776918936@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=3vqlvun4eu
+Call-ID: ci9h852dela6g9ivj7v9
+CSeq: 8071 INVITE
+Server: SIP Proxy
+Content-Length: 0
+
+
+%c +107ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:RTCSession %creceiveInviteResponse()%c +140ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +1s color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 183 Session Progress
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46675;branch=z9hG4bK8054041
+To: <sip:883140776918936@80.75.132.120>;tag=SDb5hob99-8256mQ8N4Kp6p
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=3vqlvun4eu
+Call-ID: ci9h852dela6g9ivj7v9
+CSeq: 8071 INVITE
+Record-Route: <sip:80.75.132.120;r2=on;lr;ftag=3vqlvun4eu;nat=yes;did=322.e7504b81>
+Record-Route: <sip:80.75.132.120:8443;transport=wss;r2=on;lr;ftag=3vqlvun4eu;nat=yes;did=322.e7504b81>
+Contact: <sip:883140776918936@80.75.130.100:5070;transport=udp>
+User-Agent: MTT Exolve
+Accept: application/sdp
+Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, MESSAGE, INFO, UPDATE, REGISTER, REFER, NOTIFY
+Supported: timer, path, replaces
+Allow-Events: talk, hold, conference, refer
+Content-Type: application/sdp
+Content-Disposition: session
+Content-Length: 621
+P-Asserted-Identity: "883140776918936" <sip:883140776918936@80.75.130.100>
+
+v=0
+o=Exolve 1728276458 1728276459 IN IP4 80.75.132.120
+s=Exolve
+c=IN IP4 80.75.132.120
+t=0 0
+m=audio 18778 RTP/SAVPF 8 126
+a=mid:0
+a=rtpmap:8 PCMA/8000
+a=rtpmap:126 telephone-event/8000
+a=fmtp:126 0-15
+a=sendrecv
+a=rtcp:18778
+a=rtcp-mux
+a=setup:active
+a=fingerprint:sha-256 30:EB:DA:EE:4D:38:34:97:1C:3A:A7:D4:09:90:F3:35:14:0C:8F:6B:C9:06:2C:C5:45:70:E5:5B:1F:15:F7:F5
+a=tls-id:d769a1b68151b22371c772a1638bd65a
+a=ptime:20
+a=ice-ufrag:oHcvNSk2
+a=ice-pwd:9bj7oe1qcs9iikwfCqfladrzlg
+a=ice-options:trickle
+a=candidate:8yFx3dRvYfSbzkBV 1 UDP 2130706431 80.75.132.120 18778 typ host
+a=end-of-candidates
+
+%c +1s color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:RTCSession %creceiveInviteResponse()%c +1s color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:Dialog %cnew UAC dialog created with status EARLY%c +0ms color: #33CC33 color: inherit color: #33CC33
+INFO%cJsSIP:RTCSession %cemit "sdp"%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +11ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 200 OK
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46675;branch=z9hG4bK8054041
+To: <sip:883140776918936@80.75.132.120>;tag=SDb5hob99-8256mQ8N4Kp6p
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=3vqlvun4eu
+Call-ID: ci9h852dela6g9ivj7v9
+CSeq: 8071 INVITE
+Record-Route: <sip:80.75.132.120;r2=on;lr;ftag=3vqlvun4eu;nat=yes;did=322.e7504b81>
+Record-Route: <sip:80.75.132.120:8443;transport=wss;r2=on;lr;ftag=3vqlvun4eu;nat=yes;did=322.e7504b81>
+Contact: <sip:883140776918936@80.75.130.100:5070;transport=udp>
+User-Agent: MTT Exolve
+Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, MESSAGE, INFO, UPDATE, REGISTER, REFER, NOTIFY
+Require: timer
+Supported: timer, path, replaces
+Allow-Events: talk, hold, conference, refer
+Session-Expires: 500;refresher=uac
+Content-Type: application/sdp
+Content-Disposition: session
+Content-Length: 621
+X-Internal-Skip-Failover: true
+P-Asserted-Identity: "Outbound Call" <sip:883140776918936@80.75.130.100>
+
+v=0
+o=Exolve 1728276458 1728276459 IN IP4 80.75.132.120
+s=Exolve
+c=IN IP4 80.75.132.120
+t=0 0
+m=audio 18778 RTP/SAVPF 8 126
+a=mid:0
+a=rtpmap:8 PCMA/8000
+a=rtpmap:126 telephone-event/8000
+a=fmtp:126 0-15
+a=sendrecv
+a=rtcp:18778
+a=rtcp-mux
+a=setup:active
+a=fingerprint:sha-256 30:EB:DA:EE:4D:38:34:97:1C:3A:A7:D4:09:90:F3:35:14:0C:8F:6B:C9:06:2C:C5:45:70:E5:5B:1F:15:F7:F5
+a=tls-id:d769a1b68151b22371c772a1638bd65a
+a=ptime:20
+a=ice-ufrag:oHcvNSk2
+a=ice-pwd:9bj7oe1qcs9iikwfCqfladrzlg
+a=ice-options:trickle
+a=candidate:8yFx3dRvYfSbzkBV 1 UDP 2130706431 80.75.132.120 18778 typ host
+a=end-of-candidates
+
+%c +10ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:RTCSession %creceiveInviteResponse()%c +3ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:Dialog %cdialog ci9h852dela6g9ivj7v93vqlvun4euSDb5hob99-8256mQ8N4Kp6p  changed to CONFIRMED state%c +3ms color: #33CC33 color: inherit color: #33CC33
+INFO%cJsSIP:RTCSession %cemit "sdp"%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %csession progress%c +1ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "progress"%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %csession accepted%c +2ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "accepted"%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %csendRequest()%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:Transport %csend()%c +5ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+ACK sip:883140776918936@80.75.130.100:5070;transport=udp SIP/2.0
+Route: <sip:80.75.132.120:8443;transport=wss;r2=on;lr;ftag=3vqlvun4eu;nat=yes;did=322.e7504b81>
+Route: <sip:80.75.132.120;r2=on;lr;ftag=3vqlvun4eu;nat=yes;did=322.e7504b81>
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK9949424
+Max-Forwards: 69
+To: <sip:883140776918936@80.75.132.120>;tag=SDb5hob99-8256mQ8N4Kp6p
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=3vqlvun4eu
+Call-ID: ci9h852dela6g9ivj7v9
+CSeq: 8071 ACK
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 0
+
+
+%c +1ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +6ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:RTCSession %csession confirmed%c +1ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cemit "confirmed"%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +5s color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+BYE sip:883140776916774@80.75.132.120:5060;received=213.87.240.33:46675;transport=wss;realip=80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS 80.75.132.120:8443;branch=z9hG4bK15fd.2e4af594.0
+Via: SIP/2.0/UDP 80.75.130.100:5070;rport=5070;received=80.75.130.100;branch=z9hG4bK306fla0008bp1bhughi0sd5olch70.1
+Max-Forwards: 65
+From: <sip:883140776918936@80.75.132.120>;tag=SDb5hob99-8256mQ8N4Kp6p
+To: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=3vqlvun4eu
+Call-ID: ci9h852dela6g9ivj7v9
+CSeq: 89593359 BYE
+User-Agent: MTT Exolve
+Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, MESSAGE, INFO, UPDATE, REGISTER, REFER, NOTIFY
+Supported: timer, path, replaces
+Reason: Q.850;cause=16;text="NORMAL_CLEARING"
+Content-Length: 0
+
+
+%c +5s color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:RTCSession %creceiveRequest()%c +5s color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:Transport %csend()%c +8ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+SIP/2.0 200 OK
+Via: SIP/2.0/WSS 80.75.132.120:8443;branch=z9hG4bK15fd.2e4af594.0
+Via: SIP/2.0/UDP 80.75.130.100:5070;rport=5070;received=80.75.130.100;branch=z9hG4bK306fla0008bp1bhughi0sd5olch70.1
+To: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=3vqlvun4eu
+From: <sip:883140776918936@80.75.132.120>;tag=SDb5hob99-8256mQ8N4Kp6p
+Call-ID: ci9h852dela6g9ivj7v9
+CSeq: 89593359 BYE
+Supported: outbound
+Content-Length: 0
+
+
+%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +8ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:RTCSession %csession ended%c +1ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cclose()%c +1ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:RTCSession %cclose() | closing local MediaStream%c +0ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:Dialog %cdialog ci9h852dela6g9ivj7v93vqlvun4euSDb5hob99-8256mQ8N4Kp6p deleted%c +5s color: #33CC33 color: inherit color: #33CC33
+INFO%cJsSIP:RTCSession %cemit "ended"%c +1ms color: #99CC00 color: inherit color: #99CC00
+INFO%cJsSIP:UA %cstop()%c +6s color: #FF9933 color: inherit color: #FF9933
+INFO%cJsSIP:Transport %csend()%c +3ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %csending message:
+
+REGISTER sip:80.75.132.120 SIP/2.0
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;branch=z9hG4bK8650307
+Max-Forwards: 69
+To: <sip:883140776916774@80.75.132.120>
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=7sqrm10eif
+Call-ID: b3oej83vtp9p2n84eh1bi1
+CSeq: 6 REGISTER
+Contact: <sip:883140776916774-ddddfo06xokl8rr8@ddddfo06xokl8rr8.invalid>;+sip.ice;reg-id=1;+sip.instance="<urn:uuid:d7cf399b-9d1f-41bc-9e23-635b6623bb20>";expires=0
+Expires: 0
+Allow: INVITE,ACK,CANCEL,BYE,UPDATE,MESSAGE,OPTIONS,REFER,INFO,NOTIFY
+Supported: path,gruu,outbound
+User-Agent: JsSIP 3.10.1
+Content-Length: 0
+
+
+%c +0ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:WebSocketInterface %csend()%c +3ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:NonInviteServerTransaction %cTimer J expired for transaction z9hG4bK15fd.2e4af594.0%c +0ms color: #6633CC color: inherit color: #6633CC
+INFO%cJsSIP:WebSocketInterface %creceived WebSocket message%c +147ms color: #66CC33 color: inherit color: #66CC33
+INFO%cJsSIP:Transport %creceived text message:
+
+SIP/2.0 200 OK
+Via: SIP/2.0/WSS ddddfo06xokl8rr8.invalid;received=213.87.240.33;rport=46675;branch=z9hG4bK8650307
+To: <sip:883140776916774@80.75.132.120>;tag=SDms05399-decc.04a0c48425d6df6eef86e2596c479799
+From: "883140776916774" <sip:883140776916774@80.75.132.120>;tag=7sqrm10eif
+Call-ID: b3oej83vtp9p2n84eh1bi1
+CSeq: 6 REGISTER
+Server: MTT PUSH GW
+Content-Length: 0
+
+
+%c +147ms color: #FF0066 color: inherit color: #FF0066
+INFO%cJsSIP:Transport %cclose()%c +2s color: #FF0066 color: inherit color: #FF0066
